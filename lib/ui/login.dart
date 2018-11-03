@@ -66,11 +66,6 @@ class LoginApp extends StatelessWidget {
                                 child: new Column(
                                   children:  <Widget>[
                                     new Padding(
-                                      padding: EdgeInsets.only(top:30.0),
-                                      child: new Text('33${vm.loginLoadding}')
-
-                                    ),
-                                    new Padding(
                                       padding: EdgeInsets.only(top: 50.0),
                                       child: LoginType(),
                                     ),
