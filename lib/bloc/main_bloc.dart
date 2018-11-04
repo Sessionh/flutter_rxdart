@@ -21,8 +21,20 @@ class MainBloc implements BlocBase {
     _mainController.close();
   }
 
-  setData() {
-    MainModel main = new MainModel(isLogin: true, title: 'Test');
+  setData({bool isLogin,bool isLoading, String title}) {
+    var _isLogin = false;
+    var _isLoading = false;
+    var _title = '';
+    if (isLogin != null) {
+      _isLogin = isLogin;
+    }
+    if (isLoading != null) {
+      _isLoading = isLoading;
+    }
+    if (title != null) {
+      _title = title;
+    }
+    MainModel main = new MainModel(isLogin: _isLogin, title: _title,isLoading: _isLoading);
     _inMoviesList.add(main);
 
   }

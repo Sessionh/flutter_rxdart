@@ -23,25 +23,7 @@ class LoginBloc implements BlocBase {
       }
       
   }
-  // 初始化数据
-  final loginInitData =  LoginModel(
-    type:3.0,
-    login: Colors.black,
-    signIn: Colors.white,
-    text: '',
-    isDarkTheme: false,
-    username: '', 
-    password: '',
-    inputTop: 260.0,
-    iconTypePassword: 0,
-    obscureText: true,
-    loginLoadding: false,
-    shadeHeight: 0.0,
-    shadeWidth: 0.0,
-    radiusLoading: 0.1,
-    offStage: true,
-    modelContent: '',
-    );
+  
 
   setData({
     double type,
@@ -79,7 +61,7 @@ class LoginBloc implements BlocBase {
       double _radiusLoading = 0.1;
       bool _offStage = true;
       String _modelContent = '';
-      if (login != null) {
+      if (type != null) {
         _type = type;
       }
       if (login != null) {

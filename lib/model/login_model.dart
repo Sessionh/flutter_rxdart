@@ -54,4 +54,5 @@ class LoginModel{
         this.offStage = true,
         this.modelContent = '',
         });
+    
 }

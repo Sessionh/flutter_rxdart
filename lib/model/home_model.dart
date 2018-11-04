@@ -1,7 +1,7 @@
 class HomeModel {
-  final int id;
-  final String title;
-  final bool isLogin;
+   int id;
+   String title;
+   bool isLogin;
 
   HomeModel(
       {this.id,  this.title, this.isLogin});

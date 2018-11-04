@@ -7,6 +7,7 @@ import 'package:flutter_bloc/model/login_model.dart';
 import 'package:flutter_bloc/libs/util.dart';
 import 'package:flutter_bloc/widgets/Model.dart';
 import 'package:flutter_bloc/ui/widgets/login_type.dart';
+import 'package:flutter_bloc/ui/widgets/login_form.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -38,12 +39,13 @@ class LoginApp extends StatelessWidget {
     return  Scaffold(
           body: StreamBuilder(
             stream: loginBloc.outLoginList,
-            initialData: loginBloc.loginInitData,
+            initialData: LoginModel.initial(),
             builder: (BuildContext context, AsyncSnapshot<LoginModel> snapshot){
-              var vm = snapshot.data;
-              print(vm.isDarkTheme);
+              var vm = snapshot.data;             
 
-              return Stack(
+              return 
+              
+              Stack(
                 children: <Widget>[
                   SingleChildScrollView(
                       child: ConstrainedBox(
@@ -69,6 +71,8 @@ class LoginApp extends StatelessWidget {
                                       padding: EdgeInsets.only(top: 50.0),
                                       child: LoginType(),
                                     ),
+                                    
+                                    
                                     new Stack(
                                       children: <Widget>[
                                         new Padding(
@@ -82,10 +86,12 @@ class LoginApp extends StatelessWidget {
                                               color: Colors.white,
                                             ),
                                             child: new Center(
-                                              child:  _loginForm(vm.username, vm.password, vm.isDarkTheme, vm.obscureText, vm.iconTypePassword, loginBloc)
+                                              child:  LoginForm(formKey)
                                             ),
                                           ),
                                         ),
+                                                                            
+                                        
                                         new Container(
                                           width: MediaQuery.of(context).size.width - 75.0,
                                           padding: EdgeInsets.only(top: 20.0),
@@ -135,6 +141,8 @@ class LoginApp extends StatelessWidget {
                                                         radiusLoading: 0.1,
                                                         loginLoadding: false,
                                                       );
+                                                      bloc.setData(isLogin: true);
+                                                      
                                                     
                                                       // Navigator.pushNamed(context, '/home');
 
@@ -191,193 +199,7 @@ class LoginApp extends StatelessWidget {
           )
         );
   }
-
-   Widget loginSignType(BuildContext context) {
-    final LoginBloc loginBloc = BlocProvider.of<LoginBloc>(context);
-      
-     return StreamBuilder(
-       initialData: loginBloc.loginInitData,
-       builder:  (BuildContext context, AsyncSnapshot<LoginModel> snapshot){
-         var vm = snapshot.data;
-         
-         return Stack(
-          children: <Widget>[
-            new Container(
-              height: 40.0,
-              width: 200.0,
-              padding: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                color: Color.fromRGBO(0, 0, 0, 0.3)
-              ),
-            ),
-            new Container(
-              height: 34.0,
-              width: 100.0,
-              margin: EdgeInsets.fromLTRB(vm.type, 3.0, 0.0, 3.0),
-              padding: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                color: Colors.white
-              )
-            ),
-            new Container(
-              height: 40.0,
-              width: 200.0,
-              padding: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
-              child: new Row(
-              children: <Widget>[
-                Expanded(
-                  child: FlatButton(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () {
-                      loginBloc.setData(type:3.0,login: Colors.black);
-                     
-                    },
-                    child: Text(
-                      "登陆",
-                      style: TextStyle(
-                          color: vm.login,
-                          fontSize: 16.0,
-                          fontFamily: "WorkSansSemiBold"),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () {
-                      // loginBloc.setData(
-                      //   type: 97.0,
-                      //   login: Colors.white,
-                      //   signIn: Colors.black
-                      // );
-                       
-                    },
-                    child: Text(
-                      "注册",
-                      style: TextStyle(
-                          color: vm.signIn,
-                          fontSize: 16.0,
-                          fontFamily: "WorkSansSemiBold"),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            ),
-
-          ]
-
-      );
-    }
-      
-
-     );
-     
-      
-
-   }
-  _loginForm(String username, String password, bool isDarkTheme, bool obscureText, int iconTypePassword,loginBloc) =>  Form(
-              key: formKey,
-              onChanged: () {
-                print(33);
-              
-              },
-              autovalidate: false, //开启验证input
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-
-                  Row(
-                    children: <Widget>[
-                      new Container(
-                      child: new Icon(Icons.person, color: Colors.black54),
-                      width: 60.0,
-                    ),
-                    new Expanded(
-                      child: TextFormField(
-                          decoration: InputDecoration(labelText: '用户名', border: InputBorder.none),
-                          // validator: (val) =>
-                          //     val.length < 1 ? '用户名不能为空' : null,
-                          onSaved: (val) => username = val,
-                          obscureText: false,
-                          keyboardType: TextInputType.text,
-                          autocorrect: false,
-                          style: TextStyle(
-                              color: isDarkTheme
-                                  ? Colors.white
-                                  : Colors.black),
-                        ),
-                    )
-
-                    ]
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 25.0),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(width: 0.3, color: Colors.lightBlue.shade900),
-                      ),
-                    ),
-                  ),
-                  
-                  Row(
-                    children: <Widget>[
-                      new Container(
-                        child: new Icon(Icons.https, color: Colors.black54),
-                        width: 60.0,
-                      ),
-                      new Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            labelText: '密码',
-                            border: InputBorder.none
-                          ),
-                          obscureText: obscureText, // 是否显示
-                          // validator: (val) {
-                          //   if (val.length < 1) {
-                          //     return '密码不能为空';
-                          //   } else {
-                          //     return null;
-                          //   }
-
-                          // },
-                          onSaved: (val) => password = val,
-                          keyboardType: TextInputType.text,
-                          autocorrect: false,
-                          style: TextStyle(
-                              color: isDarkTheme
-                                  ? Colors.white
-                                  : Colors.black
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        child: new IconButton(
-                          icon: loginBloc.iconType(iconTypePassword),
-                          onPressed: () {
-                            if (iconTypePassword == 0) {
-                              loginBloc.setData(iconTypePassword: 1, obscureText: false);
-                            } else {
-                              loginBloc.setData(iconTypePassword: 0, obscureText: true);
-                            }
-
-                          },
-
-                        ),
-                        
-                        width: 60.0,
-                      ),
-
-                    ]
-                  ),
-                
-                ],
-              ),
-            );
+  
   
 }
 

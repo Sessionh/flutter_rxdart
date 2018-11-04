@@ -10,6 +10,7 @@ class LoginType extends StatelessWidget{
   Widget build(BuildContext context) {
     final LoginBloc loginBloc = BlocProvider.of<LoginBloc>(context);
     return StreamBuilder(
+      stream: loginBloc.outLoginList,
        initialData: LoginModel.initial(),
        builder:  (BuildContext context, AsyncSnapshot<LoginModel> snapshot){
          var vm = snapshot.data;
@@ -64,6 +65,7 @@ class LoginType extends StatelessWidget{
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onPressed: () {
+                      print(666);
                       loginBloc.setData(
                         type: 97.0,
                         login: Colors.white,
