@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/bloc/bloc_provider.dart';
 import 'package:flutter_bloc/model/home_model.dart';
-import 'package:flutter_bloc/bloc/home_provider.dart';
+import 'package:flutter_bloc/bloc/home_bloc.dart';
 class HomeWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context){

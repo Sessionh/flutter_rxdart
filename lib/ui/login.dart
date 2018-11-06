@@ -34,14 +34,12 @@ class LoginApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final MainBloc bloc = BlocProvider.of<MainBloc>(context);
     final LoginBloc loginBloc = BlocProvider.of<LoginBloc>(context);
-    
 
     return StreamBuilder(
             stream: loginBloc.outLoginList,
             initialData: LoginModel.initial(),
             builder: (BuildContext context, AsyncSnapshot<LoginModel> snapshot){
               var vm = snapshot.data;             
-                 
               return Scaffold(
                       body: Stack(
                       children: <Widget>[
@@ -61,7 +59,6 @@ class LoginApp extends StatelessWidget {
                                       height: MediaQuery.of(context).size.height,
                                       decoration: new  BoxDecoration(
                                         image:  DecorationImage(image: AssetImage('images/logos8.png'), fit: BoxFit.fill),
-                                        color: Colors.green
                                       ),
                                       child: new Column(
                                         children:  <Widget>[
@@ -101,6 +98,7 @@ class LoginApp extends StatelessWidget {
                                                     child: new Text('登陆'),
                                                     onPressed: () {
                                                       _forSubmitted(); // save form
+                                                      FocusScope.of(context).requestFocus(new FocusNode());
                                                       
                                                         if (vm.username == '' &&  vm.password == '') {
                                                           loginBloc.setData(
@@ -191,12 +189,12 @@ class LoginApp extends StatelessWidget {
                               ),
 
                       ],
-                  )
-                  );
-              
-
-            },
+                  ),
+                  
           );
+
+        },
+      );
   }
   
   
