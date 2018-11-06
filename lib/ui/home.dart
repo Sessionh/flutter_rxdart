@@ -3,8 +3,8 @@ import 'package:flutter_bloc/bloc/bloc_provider.dart';
 import 'package:flutter_bloc/bloc/main_bloc.dart';
 import 'package:flutter_bloc/model/home_model.dart';
 import 'package:flutter_bloc/bloc/home_bloc.dart';
-// import 'package:flutter_bloc/ui/widgets/home_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_bloc/ui/widgets/home_content.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -93,20 +93,7 @@ class HomeApp extends StatelessWidget {
                       ],
                   ),
              ),
-             Container(
-               width: MediaQuery.of(context).size.width,
-               height: MediaQuery.of(context).size.height-63.0,
-               color: Colors.white,
-               child:  IconButton(
-                  icon: Icon(Icons.headset_mic),
-                  color: Colors.white,
-                  onPressed: () {
-                    main.setIsLogin(false);
-                      bloc.setTestData();
-                  }
-              ),
-               
-             ),
+            HomeContent()
 
       ]
     )
