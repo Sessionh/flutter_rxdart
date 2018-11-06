@@ -80,16 +80,30 @@ class HomeApp extends StatelessWidget {
                           ],
                         ),
                         ),
-                      
-                        IconButton(
-                            icon: Icon(FontAwesomeIcons.bell),
-                            iconSize: 20.0,
-                            color: Colors.white,
-                            tooltip: '告警',
-                            onPressed: () {
+                        Stack(
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(FontAwesomeIcons.bell),
+                              iconSize: 20.0,
+                              color: Colors.white,
+                              tooltip: '告警',
+                              onPressed: () {
+                                main.setData(isLogin: false);
 
-                            },
-                          ),
+                              },
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 32.0, top: 6.0),
+                              child:  Text(
+                                  '3',
+                                  style: TextStyle(color: Colors.blue),
+                              ),
+                            )
+                           
+                          ],
+                        )
+                      
+                        
                       ],
                   ),
              ),

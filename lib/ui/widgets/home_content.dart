@@ -23,8 +23,8 @@ class HomeContent extends StatelessWidget{
                 ),
                 iconRows(
                   context,
-                  Icon(FontAwesomeIcons.assistiveListeningSystems),
-                  Icon(FontAwesomeIcons.affiliatetheme),
+                  Icon(FontAwesomeIcons.anchor),
+                  Icon(FontAwesomeIcons.bug),
                   'FLIGHT1',
                   'FLIGHTs',
                 ),
@@ -34,8 +34,8 @@ class HomeContent extends StatelessWidget{
                 ),
                 iconRows(
                   context,
-                  Icon(FontAwesomeIcons.assistiveListeningSystems),
-                  Icon(FontAwesomeIcons.affiliatetheme),
+                  Icon(FontAwesomeIcons.asymmetrik),
+                  Icon(FontAwesomeIcons.lightbulb),
                   'FLIGHT2',
                   'FLIGHTs',
                 ),
@@ -85,12 +85,12 @@ class HomeContent extends StatelessWidget{
           )
         ),
         Padding(
-          padding: EdgeInsets.only(top: 75.0, left: 8.0),
+          padding: EdgeInsets.only(top: 78.0, left: 8.0),
           child: Text(
             text,
             style: TextStyle(
               color: Colors.white70,
-              fontSize: 18.0,
+              fontSize: 15.0,
               fontWeight: FontWeight.w300
             )
           ),
