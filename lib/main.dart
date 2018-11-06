@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/bloc/bloc_provider.dart';
 import 'package:flutter_bloc/bloc/main_bloc.dart';
 import 'package:flutter_bloc/model/main_model.dart';
-import 'package:flutter_bloc/ui/home.dart';
-import 'package:flutter_bloc/ui/login.dart';
+import 'package:flutter_bloc/page/home/home.dart';
+import 'package:flutter_bloc/page/login/login.dart';
 void main() {
   runApp(BlocProvider<MainBloc>(
     bloc: MainBloc(),
