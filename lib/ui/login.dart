@@ -5,7 +5,7 @@ import 'package:flutter_bloc/bloc/main_bloc.dart';
 import 'package:flutter_bloc/bloc/login_bloc.dart';
 import 'package:flutter_bloc/model/login_model.dart';
 import 'package:flutter_bloc/libs/util.dart';
-import 'package:flutter_bloc/widgets/Model.dart';
+import 'package:flutter_bloc/common_widgets/Model.dart';
 import 'package:flutter_bloc/ui/widgets/login_type.dart';
 import 'package:flutter_bloc/ui/widgets/login_form.dart';
 
