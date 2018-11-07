@@ -98,7 +98,7 @@ class LoginApp extends StatelessWidget {
                                                     child: new Text('登陆'),
                                                     onPressed: () {
                                                       _forSubmitted(); // save form
-                                                      FocusScope.of(context).requestFocus(new FocusNode());
+                                                     
                                                       
                                                         if (vm.username == '' &&  vm.password == '') {
                                                           loginBloc.setData(
@@ -142,7 +142,9 @@ class LoginApp extends StatelessWidget {
                                                           
                                                             // Navigator.pushNamed(context, '/home');
 
-                                                          });
+                                                          }); 
+                                                          FocusScope.of(context).requestFocus(new FocusNode());
+
 
                                                         }
 
