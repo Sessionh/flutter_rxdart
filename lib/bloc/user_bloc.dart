@@ -9,11 +9,6 @@ class UserBloc implements BlocBase {
   Sink<UserModel> get _inList => _moviesController.sink;
 
   Stream<UserModel> get outList => _moviesController.stream;
-
-  ReplaySubject<int> _movieId = ReplaySubject<int>();
-
-  Sink<int> get movieId => _movieId.sink;
-   
   UserBloc() { // 初始化
   
   }
@@ -21,7 +16,6 @@ class UserBloc implements BlocBase {
   @override
   void dispose() {
     _moviesController.close();
-    _movieId.close();
   }
 
   setData({double iconSize}) {
