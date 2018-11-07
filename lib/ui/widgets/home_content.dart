@@ -4,9 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomeContent extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    
     return  Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height - 63.0,
+            height: MediaQuery.of(context).size.height - 83.0,
             // color: Color.fromRGBO(21, 21, 21, 0.8),
             child:  Column(
               children: <Widget>[
@@ -48,7 +49,7 @@ class HomeContent extends StatelessWidget{
           children: <Widget>[
             Expanded(
               child: Container(
-                height:  (MediaQuery.of(context).size.height - 65.0)/3,
+                height:  (MediaQuery.of(context).size.height - 85.0)/3,
                 color: Color.fromRGBO(21, 21, 21, 0.8),
                 child: Center(
                   child: iconState(iconLeft, textLeft),
@@ -62,7 +63,7 @@ class HomeContent extends StatelessWidget{
             ),
             Expanded(
               child: Container(
-                height:  (MediaQuery.of(context).size.height - 65.0)/3,
+                height:  (MediaQuery.of(context).size.height - 85.0)/3,
                 color: Color.fromRGBO(21, 21, 21, 0.8),
                 child: Center(
                   child: iconState(iconRight, textRight),

@@ -47,7 +47,7 @@ class HomeApp extends StatelessWidget {
                       .top,
                   right: 5.0,
                 ),
-                height:63.0,
+                height:83.0,
                 child: new Row(
                   children: [
                       new Expanded(
@@ -71,7 +71,7 @@ class HomeApp extends StatelessWidget {
                                   'Let`s Go',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
-                                      fontSize: 20.0,
+                                      fontSize: 18.0,
                                       fontFamily: 'Dosis',
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white
@@ -88,7 +88,7 @@ class HomeApp extends StatelessWidget {
                               color: Colors.white,
                               tooltip: '告警',
                               onPressed: () {
-                                main.setData(isLogin: false);
+                                // main.setData(isLogin: false);
 
                               },
                             ),
